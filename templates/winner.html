@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>당신의 선택은 이 곡입니다</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .thumbnail {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>당신의 선택은 이 곡입니다</h1>
+    <a href="{{ winner }}" target="_blank">
+        <img src="https://img.youtube.com/vi/{{ winner.split('v=')[1] }}/0.jpg" alt="Winning Video" class="thumbnail">
+    </a>
+</div>
+</body>
+</html>
