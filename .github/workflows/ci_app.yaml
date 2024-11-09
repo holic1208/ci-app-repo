@@ -1,4 +1,4 @@
-name: python 앱 build/test
+name: CI
 
 on:
   pull_request:
