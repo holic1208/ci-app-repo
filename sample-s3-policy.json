@@ -1,0 +1,36 @@
+{
+    "Version": "2012-10-17",
+    "Id": "S3Policy",
+    "Statement": [
+        {
+            "Sid": "Allow specific IAM role",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::xxxxxxxxxxxxx:role/{your-node-role-name}"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::{your-bucket-name}/tournament_logs/*"
+        },
+        {
+            "Sid": "DenyAllExceptSpecific",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::{your-bucket-name}",
+                "arn:aws:s3:::{your-bucket-name/*}"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "{your-public-ip}"
+                },
+                "StringNotEquals": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::xxxxxxxxxxxxx:role/{your-node-role-name}",
+                        "arn:aws:iam::xxxxxxxxxxxxx:role/{your-node-role-name}"
+                    ]
+                }
+            }
+        }
+    ]
+}
