@@ -6,8 +6,11 @@ Follow these steps to set up and run the application.
 
 - **OS**: Amazon Linux 2
 - **Python**: 3.9
+- **EKS**
 
+**Please modify and use the sample-s3-policy.json file to suit your environment.**
 **put the value of S3_BUCKET_NAME, YouTube_links.txt to the desired value**
+
 ---
 
 ### Installation Steps
